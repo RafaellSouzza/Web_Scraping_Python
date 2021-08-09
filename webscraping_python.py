@@ -21,7 +21,9 @@ element = driver.find_element_by_class_name("_l")
 html_content = element.get_attribute('outerHTML')
 soup = BeautifulSoup(html_content, 'html.parser')
 
-table = soup.find(name='table')
-df_full = pd.read_html(str(table))
-print(df_full)
+for materia in soup.find_all("div", attrs={"class": "_b"}):
+    print(materia)
+    print("\n\n")
+
+
 driver.quit()
